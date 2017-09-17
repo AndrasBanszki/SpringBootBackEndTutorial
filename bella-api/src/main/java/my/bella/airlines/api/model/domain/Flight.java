@@ -1,6 +1,7 @@
 package my.bella.airlines.api.model.domain;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 import java.util.Objects;
 
 /**
@@ -10,13 +11,13 @@ import java.util.Objects;
 public class Flight {
 
     private final long id;
-    private final Date dateOfDeparture;
-    private final Date dateOfArrival;
+    private final LocalDate dateOfDeparture;
+    private final LocalDate dateOfArrival;
     private final long departureAirport_id;
     private final long arrivalAirport_id;
     private final long planeId;
 
-    public Flight(long id, Date dateOfDeparture, Date dateOfArrival, long departureAirport_id, long arrivalAirport_id, long planeId) {
+    public Flight(long id, LocalDate dateOfDeparture, LocalDate dateOfArrival, long departureAirport_id, long arrivalAirport_id, long planeId) {
         this.id = id;
         this.dateOfDeparture = dateOfDeparture;
         this.dateOfArrival = dateOfArrival;
@@ -29,11 +30,11 @@ public class Flight {
         return id;
     }
 
-    public Date getDateOfDeparture() {
+    public LocalDate getDateOfDeparture() {
         return dateOfDeparture;
     }
 
-    public Date getDateOfArrival() {
+    public LocalDate getDateOfArrival() {
         return dateOfArrival;
     }
 
