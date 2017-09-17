@@ -1,5 +1,3 @@
-
-
 package my.bella.airlines.api.model.domain;
 
 /**
@@ -67,6 +65,5 @@ public class PassangerToFlight {
     public String toString() {
         return "PassangerToFlight{" + "id=" + id + ", flightId=" + flightId + ", passangerId=" + passangerId + '}';
     }
-    
-    
+
 }

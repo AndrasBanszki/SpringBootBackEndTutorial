@@ -95,7 +95,5 @@ public class Plane {
     public String toString() {
         return "Plane{" + "id=" + id + ", maxSpeed=" + maxSpeed + ", numberOfStaff=" + numberOfStaff + ", numberOfPassanger=" + numberOfPassanger + ", maxCargoWeight=" + maxCargoWeight + ", planeWeight=" + planeWeight + '}';
     }
-    
-    
 
 }

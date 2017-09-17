@@ -17,15 +17,15 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 @ComponentScan(basePackages = "my.bella.airlines")
 @SpringBootApplication
 public class SpringBootApp {
-    
+
     private static final String URL = "jdbc:mysql://localhost:3306/bella_airline?useSSL=false&serverTimezone=UTC";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "admin";
-    
+
     public static void main(String args[]) {
         SpringApplication.run(SpringBootApp.class, args);
     }
-    
+
     @Bean
     @Primary
     public NamedParameterJdbcTemplate getJdbcTemplate() {

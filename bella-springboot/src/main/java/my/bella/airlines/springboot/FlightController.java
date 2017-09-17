@@ -2,6 +2,7 @@ package my.bella.airlines.springboot;
 
 import java.util.List;
 import my.bella.airlines.api.model.domain.Flight;
+import my.bella.airlines.api.model.domain.Plane;
 import my.bella.airlines.api.service.FlightServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,11 +23,20 @@ public class FlightController {
 
     @RequestMapping(path = "/flight/passangersno", method = RequestMethod.POST, produces = "application/json")
     public long getNumberOfPassangers(@RequestParam("flightId") long flightId) {
+
         return this.flightServices.getNumberOfPassangers(flightId);
     }
+
     @RequestMapping(path = "/flight/flightsofpass", method = RequestMethod.POST, produces = "application/json")
-    public List<Flight> getAllFlightsforPassanger(@RequestParam("passangerId") long passangerId){
+    public List<Flight> getAllFlightsforPassanger(@RequestParam("passangerId") long passangerId) {
+
         return this.flightServices.getAllFlight(passangerId);
     }
-    
+
+    @RequestMapping(path = "/flight/planedata", method = RequestMethod.POST, produces = "application/json")
+    public Plane getPlaneData(@RequestParam("flightId") long flightId) {
+
+        return this.flightServices.getPlaneData(flightId);
+    }
+
 }
