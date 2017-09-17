@@ -1,0 +1,13 @@
+description = 'bella-api'
+
+jar {
+    baseName = 'bella-api'
+    version = '0.1'
+
+    
+}
+
+dependencies{
+    compile 'javax:javaee-api:7.0'
+    
+}

@@ -1,0 +1,17 @@
+description = 'bella-service'
+
+apply plugin: 'war'
+
+
+jar {
+    baseName = 'bella-service'
+    version = '0.1'
+
+    
+}
+
+dependencies{
+    compile project(':bella-jdbc')
+    
+    
+}

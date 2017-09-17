@@ -1,0 +1,27 @@
+description = 'bella-springboot'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.6.RELEASE"
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'bella-springboot'
+    version = '0.1'    
+}
+
+dependencies{
+    compile project(':bella-service')
+    compile ("org.springframework.boot:spring-boot-starter-web:1.5.6.RELEASE") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile "org.springframework.boot:spring-boot-starter-undertow:1.5.6.RELEASE"
+    compile "org.springframework.boot:spring-boot-starter-actuator:1.5.6.RELEASE"
+}

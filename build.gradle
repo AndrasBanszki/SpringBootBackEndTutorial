@@ -1,0 +1,16 @@
+description = 'bella'
+
+allprojects {
+    apply plugin: 'base'
+    apply plugin: 'java'
+
+    group = 'my.bella.airlines'
+
+    repositories {
+    	mavenLocal()
+    	mavenCentral()
+    }
+	
+    dependencies {
+	}
+}

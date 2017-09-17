@@ -1,0 +1,6 @@
+rootProject.name = 'bella'
+
+include ':bella-api'
+include ':bella-jdbc'
+include ':bella-service'
+include ':bella-springboot'
