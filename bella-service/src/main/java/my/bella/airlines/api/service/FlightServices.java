@@ -32,7 +32,7 @@ public class FlightServices implements IFlightServices {
         try {
             passangersNo = this.flightRepo.getPassangersNumber(flightId);
         } catch (Exception ex) {
-            LOG.log(Level.INFO, "Exception happened during getNumberOfPassangers Ex: {0}", ex.getMessage());
+            LOG.log(Level.WARNING, "Exception happened during getNumberOfPassangers Ex: {0}", ex.getMessage());
         }
         LOG.log(Level.INFO, "Result of get Number Of Passangers: {0}", passangersNo);
 
@@ -48,7 +48,7 @@ public class FlightServices implements IFlightServices {
         try {
             flights = this.flightRepo.getAllFlightForPassanger(passangerId);
         } catch (Exception ex) {
-            LOG.log(Level.INFO, "Exception happaned during getAllFlight Ex: {0}", ex.getMessage());
+            LOG.log(Level.WARNING, "Exception happaned during getAllFlight Ex: {0}", ex.getMessage());
         }
         LOG.log(Level.INFO, "Result of get All flights: {0}", flights);
 
@@ -64,7 +64,7 @@ public class FlightServices implements IFlightServices {
         try {
             plane = this.flightRepo.getPlaneData(flightId);
         } catch (Exception ex) {
-            LOG.log(Level.INFO, "Exception happaned during getPlaneData() : {0}", ex);
+            LOG.log(Level.WARNING, "Exception happaned during getPlaneData() : {0}", ex);
         }
         LOG.log(Level.INFO, "Result of get Plane Data: {0}", plane);
 
