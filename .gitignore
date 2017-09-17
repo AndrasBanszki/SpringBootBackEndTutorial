@@ -37,3 +37,5 @@ local.properties
 #NDK
 obj/
 /restaurantBooking-servlet/null/
+/description/bella_desc.txt
+/description/generate_insert.groovy
