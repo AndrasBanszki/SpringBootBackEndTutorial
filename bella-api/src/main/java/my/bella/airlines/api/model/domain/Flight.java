@@ -1,6 +1,7 @@
 package my.bella.airlines.api.model.domain;
 
 import java.time.LocalDate;
+import java.sql.Date;
 
 import java.util.Objects;
 
@@ -17,13 +18,13 @@ public class Flight {
     private final long arrivalAirport_id;
     private final long planeId;
 
-    public Flight(long id, LocalDate dateOfDeparture, LocalDate dateOfArrival, long departureAirport_id, long arrivalAirport_id, long planeId) {
-        this.id = id;
-        this.dateOfDeparture = dateOfDeparture;
-        this.dateOfArrival = dateOfArrival;
-        this.departureAirport_id = departureAirport_id;
-        this.arrivalAirport_id = arrivalAirport_id;
-        this.planeId = planeId;
+    private Flight(Builder b) {
+        this.id = b.id;
+        this.dateOfDeparture = b.dateOfDeparture;
+        this.dateOfArrival = b.dateOfArrival;
+        this.departureAirport_id = b.departureAirport_id;
+        this.arrivalAirport_id = b.arrivalAirport_id;
+        this.planeId = b.planeId;
     }
 
     public long getId() {
@@ -100,6 +101,54 @@ public class Flight {
         return "Flight{" + "id=" + id + ", dateOfDeparture=" + dateOfDeparture + ", dateOfArrival=" + dateOfArrival + ", departureAirport_id=" + departureAirport_id + ", arrivalAirport_id=" + arrivalAirport_id + ", planeId=" + planeId + '}';
     }
 
-    
-    
+    public static class Builder {
+
+        private final long id;
+
+        private LocalDate dateOfDeparture = LocalDate.now();
+        private LocalDate dateOfArrival = LocalDate.now();
+        private long departureAirport_id = 0l;
+        private long arrivalAirport_id = 0;
+        private long planeId = 0;
+
+        public Builder(long id) {
+            this.id = id;
+        }
+
+        public Builder departureDate(LocalDate departureDate) {
+            this.dateOfDeparture = departureDate;
+            return this;
+        }
+        public Builder departureDate(Date departureDate) {
+            this.dateOfDeparture = departureDate.toLocalDate();
+            return this;
+        }
+
+        public Builder arrivalDate(LocalDate arrivalDate) {
+            this.dateOfArrival = arrivalDate;
+            return this;
+        }
+        public Builder arrivalDate(Date arrivalDate) {
+            this.dateOfArrival = arrivalDate.toLocalDate();
+            return this;
+        }
+        
+        public Builder departureAirport(long departureAirport){
+            this.departureAirport_id = departureAirport;
+            return this;
+        }
+        
+        public Builder arrivalAirport(long arrivalAirport){
+            this.arrivalAirport_id = arrivalAirport;
+            return this;
+        }
+        public Builder planeId(long planeId){
+            this.planeId = planeId;
+            return this;
+        }
+        public Flight build(){
+            return new Flight(this);
+        }
+    }
+
 }

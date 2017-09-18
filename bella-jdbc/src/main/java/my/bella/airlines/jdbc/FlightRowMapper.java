@@ -14,12 +14,13 @@ public class FlightRowMapper implements RowMapper<Flight> {
     @Override
     public Flight mapRow(ResultSet rs, int i) throws SQLException {
 
-        Flight f = new Flight(  rs.getLong("id"),
-                                rs.getDate("date_of_departure").toLocalDate(),
-                                rs.getDate("date_of_arrival").toLocalDate(),
-                                rs.getLong("departure_airport_id"),
-                                rs.getLong("arrival_airport_id"),
-                                rs.getLong("plane_id"));
+        Flight f = new Flight.Builder(rs.getLong("id"))
+                .departureDate(rs.getDate("date_of_departure"))
+                .arrivalDate(rs.getDate("date_of_departure"))
+                .departureAirport(rs.getLong("departure_airport_id"))
+                .departureAirport(rs.getLong("departure_airport_id"))
+                .planeId(rs.getLong("plane_id"))
+                .build();
         return f;
     }
 
