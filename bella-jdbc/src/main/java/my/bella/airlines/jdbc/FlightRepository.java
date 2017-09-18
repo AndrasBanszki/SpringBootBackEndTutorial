@@ -1,11 +1,12 @@
 package my.bella.airlines.jdbc;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import my.bella.airlines.api.model.domain.Flight;
-import my.bella.airlines.api.model.domain.Plane;
+import my.bella.airlines.api.model.pojos.Flight;
+import my.bella.airlines.api.model.pojos.Plane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -67,17 +68,18 @@ public class FlightRepository {
                      + "FROM bella_airline.flights f, bella_airline.planes p \n"
                      + "WHERE f.plane_id = p.id\n"
                      + "AND f.id = :flightId;";
-        
+
         Map namedParameters = new HashMap();
         namedParameters.put("flightId", flightId);
-        
-        RowMapper<Plane> planeRowMapper = (rs, rowNum) -> { 
-            Plane p = new Plane(rs.getLong("id"),
-                                rs.getInt("max_speed"),
-                                rs.getInt("number_of_staff"),
-                                rs.getInt("number_of_passanger"),
-                                rs.getInt("max_cargo_weight"),
-                                rs.getInt("plane_weight"));
+
+        RowMapper<Plane> planeRowMapper = (ResultSet rs, int rowNum) -> {
+            Plane p = new Plane.Builder(rs.getLong("id"))
+                    .maxSpeed(rs.getInt("max_speed"))
+                    .numberOfStaff(rs.getInt("number_of_staff"))
+                    .numberOfPassanger(rs.getInt("number_of_passanger"))
+                    .maxCargoWeight(rs.getInt("max_cargo_weight"))
+                    .planeWeight(rs.getInt("plane_weight"))
+                    .build();
             return p;
         };
 

@@ -1,8 +1,8 @@
 package my.bella.airlines.springboot;
 
 import java.util.List;
-import my.bella.airlines.api.model.domain.Flight;
-import my.bella.airlines.api.model.domain.Plane;
+import my.bella.airlines.api.model.pojos.Flight;
+import my.bella.airlines.api.model.pojos.Plane;
 import my.bella.airlines.api.service.FlightServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

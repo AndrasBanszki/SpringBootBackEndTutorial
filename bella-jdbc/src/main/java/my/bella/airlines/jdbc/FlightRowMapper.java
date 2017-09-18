@@ -2,7 +2,7 @@ package my.bella.airlines.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import my.bella.airlines.api.model.domain.Flight;
+import my.bella.airlines.api.model.pojos.Flight;
 import org.springframework.jdbc.core.RowMapper;
 
 /**
