@@ -1,4 +1,4 @@
-package my.bella.airlines.api.model.domain;
+package my.bella.airlines.api.model.pojos;
 
 import java.time.LocalDate;
 import java.sql.Date;
@@ -103,8 +103,9 @@ public class Flight {
 
     public static class Builder {
 
+        // initialize builder with the id!
         private final long id;
-
+        // dont forget to set these also!
         private LocalDate dateOfDeparture = LocalDate.now();
         private LocalDate dateOfArrival = LocalDate.now();
         private long departureAirport_id = 0l;
@@ -119,6 +120,7 @@ public class Flight {
             this.dateOfDeparture = departureDate;
             return this;
         }
+
         public Builder departureDate(Date departureDate) {
             this.dateOfDeparture = departureDate.toLocalDate();
             return this;
@@ -128,25 +130,28 @@ public class Flight {
             this.dateOfArrival = arrivalDate;
             return this;
         }
+
         public Builder arrivalDate(Date arrivalDate) {
             this.dateOfArrival = arrivalDate.toLocalDate();
             return this;
         }
-        
-        public Builder departureAirport(long departureAirport){
+
+        public Builder departureAirport(long departureAirport) {
             this.departureAirport_id = departureAirport;
             return this;
         }
-        
-        public Builder arrivalAirport(long arrivalAirport){
+
+        public Builder arrivalAirport(long arrivalAirport) {
             this.arrivalAirport_id = arrivalAirport;
             return this;
         }
-        public Builder planeId(long planeId){
+
+        public Builder planeId(long planeId) {
             this.planeId = planeId;
             return this;
         }
-        public Flight build(){
+
+        public Flight build() {
             return new Flight(this);
         }
     }

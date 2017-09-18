@@ -1,4 +1,4 @@
-package my.bella.airlines.api.model.domain;
+package my.bella.airlines.api.model.pojos;
 
 import java.util.Objects;
 

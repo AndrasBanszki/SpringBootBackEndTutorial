@@ -1,4 +1,4 @@
-package my.bella.airlines.api.model.domain;
+package my.bella.airlines.api.model.pojos;
 
 import java.util.Objects;
 
@@ -12,10 +12,10 @@ public class Passanger {
     private final String firstName;
     private final String lastName;
 
-    public Passanger(long id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    private Passanger(Builder b) {
+        this.id = b.id;
+        this.firstName = b.firstName;
+        this.lastName = b.lastName;
     }
 
     public long getId() {
@@ -68,4 +68,30 @@ public class Passanger {
         return "Passanger{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + '}';
     }
 
+    public class Builder {
+
+        //initialize with the id!
+        private final long id;
+        //dont forget to set these also!
+        private String firstName;
+        private String lastName;
+
+        public Builder(long id) {
+            this.id = id;
+        }
+
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Passanger build() {
+            return new Passanger(this);
+        }
+    }
 }

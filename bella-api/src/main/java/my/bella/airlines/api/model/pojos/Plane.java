@@ -1,4 +1,4 @@
-package my.bella.airlines.api.model.domain;
+package my.bella.airlines.api.model.pojos;
 
 /**
  *
@@ -13,13 +13,13 @@ public class Plane {
     private final int maxCargoWeight;
     private final int planeWeight;
 
-    public Plane(long id, int maxSpeed, int numberOfStaff, int numberOfPassanger, int maxCargoWeight, int planeWeight) {
-        this.id = id;
-        this.maxSpeed = maxSpeed;
-        this.numberOfStaff = numberOfStaff;
-        this.numberOfPassanger = numberOfPassanger;
-        this.maxCargoWeight = maxCargoWeight;
-        this.planeWeight = planeWeight;
+    public Plane(Builder b) {
+        this.id = b.id;
+        this.maxSpeed = b.maxSpeed;
+        this.numberOfStaff = b.numberOfStaff;
+        this.numberOfPassanger = b.numberOfPassanger;
+        this.maxCargoWeight = b.maxCargoWeight;
+        this.planeWeight = b.planeWeight;
     }
 
     public long getId() {
@@ -96,4 +96,50 @@ public class Plane {
         return "Plane{" + "id=" + id + ", maxSpeed=" + maxSpeed + ", numberOfStaff=" + numberOfStaff + ", numberOfPassanger=" + numberOfPassanger + ", maxCargoWeight=" + maxCargoWeight + ", planeWeight=" + planeWeight + '}';
     }
 
+    public class Builder {
+
+        // initialize builder with the id!
+        private final long id;
+        // dont forget to set these also!
+        private int maxSpeed;
+        private int numberOfStaff;
+        private int numberOfPassanger;
+        private int maxCargoWeight;
+        private int planeWeight;
+
+        public Builder(long id) {
+            this.id = id;
+        }
+
+        public Builder maxSpeed(int n) {
+            this.maxSpeed = n;
+            return this;
+        }
+
+        public Builder numberOfStaff(int n) {
+            this.numberOfStaff = n;
+            return this;
+        }
+
+        public Builder numberOfPassanger(int n) {
+            this.numberOfPassanger = n;
+            return this;
+        }
+
+        public Builder maxCargoWeight(int n) {
+            this.maxCargoWeight = n;
+            return this;
+
+        }
+
+        public Builder planeWeight(int n) {
+            this.planeWeight = n;
+            return this;
+        }
+
+        public Plane build() {
+            return new Plane(this);
+        }
+
+    }
 }

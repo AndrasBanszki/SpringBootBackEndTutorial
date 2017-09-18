@@ -1,4 +1,4 @@
-package my.bella.airlines.api.model.domain;
+package my.bella.airlines.api.model.pojos;
 
 /**
  *
@@ -10,10 +10,10 @@ public class PassangerToFlight {
     private final long flightId;
     private final long passangerId;
 
-    public PassangerToFlight(long id, long flightId, long passangerId) {
-        this.id = id;
-        this.flightId = flightId;
-        this.passangerId = passangerId;
+    private PassangerToFlight(Builder b) {
+        this.id = b.id;
+        this.flightId = b.flightId;
+        this.passangerId = b.passangerId;
     }
 
     public long getId() {
@@ -66,4 +66,30 @@ public class PassangerToFlight {
         return "PassangerToFlight{" + "id=" + id + ", flightId=" + flightId + ", passangerId=" + passangerId + '}';
     }
 
+    public static class Builder {
+
+        //initialize with the id!
+        private final long id;
+        //dont forget to set these also!
+        private long flightId = 0;
+        private long passangerId = 0;
+
+        public Builder(long id) {
+            this.id = id;
+        }
+
+        public Builder flightId(long flightId) {
+            this.flightId = flightId;
+            return this;
+        }
+
+        public Builder passangerId(long passangerId) {
+            this.passangerId = passangerId;
+            return this;
+        }
+
+        public PassangerToFlight build() {
+            return new PassangerToFlight(this);
+        }
+    }
 }

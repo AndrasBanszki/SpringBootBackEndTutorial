@@ -1,8 +1,8 @@
-package my.bella.airlines.api.model.service;
+package my.bella.airlines.api.model.services;
 
 import java.util.List;
-import my.bella.airlines.api.model.domain.Flight;
-import my.bella.airlines.api.model.domain.Plane;
+import my.bella.airlines.api.model.pojos.Flight;
+import my.bella.airlines.api.model.pojos.Plane;
 
 /**
  *
