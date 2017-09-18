@@ -68,7 +68,7 @@ public class Passanger {
         return "Passanger{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + '}';
     }
 
-    public class Builder {
+    public static class Builder {
 
         //initialize with the id!
         private final long id;

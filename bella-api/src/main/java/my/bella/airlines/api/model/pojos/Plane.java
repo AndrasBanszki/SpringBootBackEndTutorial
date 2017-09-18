@@ -13,7 +13,7 @@ public class Plane {
     private final int maxCargoWeight;
     private final int planeWeight;
 
-    public Plane(Builder b) {
+    private Plane(Builder b) {
         this.id = b.id;
         this.maxSpeed = b.maxSpeed;
         this.numberOfStaff = b.numberOfStaff;
@@ -96,7 +96,7 @@ public class Plane {
         return "Plane{" + "id=" + id + ", maxSpeed=" + maxSpeed + ", numberOfStaff=" + numberOfStaff + ", numberOfPassanger=" + numberOfPassanger + ", maxCargoWeight=" + maxCargoWeight + ", planeWeight=" + planeWeight + '}';
     }
 
-    public class Builder {
+    public static class Builder {
 
         // initialize builder with the id!
         private final long id;
